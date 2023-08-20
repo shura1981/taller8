@@ -4,6 +4,7 @@ import 'package:taller8/models/response_login.dart';
 import 'package:taller8/screens/home.dart';
 import 'package:taller8/services/authentication_service.dart';
 import 'package:taller8/share_preferences/preferences.dart';
+import 'package:taller8/styles/input_decoration.dart';
 import 'package:taller8/utils/helpers.dart';
 import 'package:taller8/widgets/widget.dart';
 
@@ -97,17 +98,18 @@ class LoginScreen extends StatelessWidget {
                                         offset: model.email.length),
                               keyboardType: TextInputType.emailAddress,
                               textInputAction: TextInputAction.done,
-                              decoration: InputDecoration(
-                                  border: const OutlineInputBorder(),
-                                  labelText: 'Correo',
-                                  prefixIcon: const Icon(Icons.email),
-                                  suffixIcon: IconButton(
-                                      onPressed: () {
-                                        model.setEmail('');
-                                      },
-                                      icon: Icon(model.email.isNotEmpty
-                                          ? Icons.close
-                                          : null))),
+                              decoration:
+                                  InputDecorationApp.inputDecoratiooLogin(
+                                      border: const OutlineInputBorder(),
+                                      labelText: 'Correo',
+                                      prefixIcon: const Icon(Icons.email),
+                                      suffixIcon: IconButton(
+                                          onPressed: () {
+                                            model.setEmail('');
+                                          },
+                                          icon: Icon(model.email.isNotEmpty
+                                              ? Icons.close
+                                              : null))),
                             );
                           }),
                           const SizedBox(height: 20),
@@ -126,19 +128,20 @@ class LoginScreen extends StatelessWidget {
                                 return null;
                               },
                               obscureText: model.isObscure,
-                              decoration: InputDecoration(
-                                  border: const OutlineInputBorder(),
-                                  labelText: 'Contraseña',
-                                  prefixIcon: const Icon(Icons.lock),
-                                  suffixIcon: IconButton(
-                                      onPressed: () {
-                                        context
-                                            .read<LoginModel>()
-                                            .togglePasswordVisibility();
-                                      },
-                                      icon: Icon(model.isObscure
-                                          ? Icons.visibility
-                                          : Icons.visibility_off))),
+                              decoration:
+                                  InputDecorationApp.inputDecoratiooLogin(
+                                      border: const OutlineInputBorder(),
+                                      labelText: 'Contraseña',
+                                      prefixIcon: const Icon(Icons.lock),
+                                      suffixIcon: IconButton(
+                                          onPressed: () {
+                                            context
+                                                .read<LoginModel>()
+                                                .togglePasswordVisibility();
+                                          },
+                                          icon: Icon(model.isObscure
+                                              ? Icons.visibility
+                                              : Icons.visibility_off))),
                             );
                           }),
                           SizedBox(height: space),
