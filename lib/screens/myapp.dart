@@ -21,7 +21,8 @@ class MyApp extends StatelessWidget {
         MyHomePage.name: (context) => const MyHomePage(),
         ProfileScreen.name: (context) => const ProfileScreen(),
         ConfigScreen.name: (context) => ConfigScreen(),
-        LoginScreen.name: (context) => const LoginScreen(),
+        LoginScreen.name: (context) => LoginScreen(),
+        InputScreen.name: (context)=> const InputScreen()
       },
     );
   }
