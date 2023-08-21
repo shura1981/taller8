@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taller8/share_preferences/preferences.dart';
 
 import '../widgets/widget.dart';
 
@@ -12,18 +13,17 @@ class MyHomePage extends StatelessWidget {
         title: const Text('Home'),
       ),
       drawer: const MenuLateral(),
-      body: const Column(
-mainAxisAlignment: MainAxisAlignment.center,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('IsDarkMode:'),
-          Divider(),
-          Text('Género:'),
-          Divider(),
-          Text('Nombre de usuario:'),
-          Divider(),
+          Text('IsDarkMode:${Preferences.isDarkMode ? 'Si' : 'No'}'),
+          const Divider(),
+          Text('Género: ${Preferences.gender == 1 ? 'Masculino' : 'Femenino'}'),
+          const Divider(),
+          Text('Nombre de usuario: ${Preferences.name}'),
+          const Divider(),
         ],
       ),
     );
   }
 }
-

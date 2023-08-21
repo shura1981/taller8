@@ -15,20 +15,23 @@ class LoginModel extends ChangeNotifier {
 
   bool emailValid() => _email.isEmpty ? false : true;
 
-bool validateEmail(){
-  if (_email.isEmpty) {
+  bool validateEmail() {
+    if (_email.isEmpty) {
       return false;
     }
 
     // Requisito de formato de correo electrónico
-    final RegExp emailRegExp = RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$');
+    // final RegExp emailRegExp = RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$');
+
+    final RegExp emailRegExp = RegExp(
+        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
 
     if (!emailRegExp.hasMatch(_email)) {
       return false;
     }
 
     return true;
-}
+  }
 
   bool validatePassWord(String password) {
     // Requisito de longitud

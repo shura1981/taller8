@@ -115,6 +115,7 @@ class LoginScreen extends StatelessWidget {
                           const SizedBox(height: 20),
                           Consumer<LoginModel>(builder: (_, model, __) {
                             return TextFormField(
+                              onFieldSubmitted: (_) => onPressed(context),
                               onSaved: (value) {
                                 context.read<LoginModel>().setPassword(value!);
                               },
