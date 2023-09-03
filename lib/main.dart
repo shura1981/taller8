@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:taller8/overrides/http.override.dart';
 import 'package:taller8/screens/screens.dart' show MyApp;
 
 import 'providers/login.dart';
@@ -9,6 +12,7 @@ import 'share_preferences/preferences.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Preferences.init();
+    HttpOverrides.global = MyHttpOverrides();
   runApp(
     MultiProvider(providers: [
       ChangeNotifierProvider(create: (_) => ThemeChanger( isDarkMode:  Preferences.isDarkMode)),

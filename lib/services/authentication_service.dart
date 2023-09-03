@@ -12,7 +12,7 @@ class ApiService {
       if (e.response != null) {
         message = e.response!.data["message"];
       } else {
-        message = "Error de conexión";
+        message = e.error.toString();
       }
     }
     if (e is ValidationException) {

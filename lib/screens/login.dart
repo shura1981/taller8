@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:taller8/models/response_login.dart';
 import 'package:taller8/screens/home.dart';
+import 'package:taller8/screens/scand_bar_code.dart';
 import 'package:taller8/services/authentication_service.dart';
 import 'package:taller8/share_preferences/preferences.dart';
 import 'package:taller8/styles/input_decoration.dart';
@@ -32,7 +33,7 @@ class LoginScreen extends StatelessWidget {
           context.read<LoginModel>().password);
       final token = loginResponse.data.jsontoken;
       Preferences.setJwtLogin(token).then((value) {
-        Navigator.pushReplacementNamed(context, MyHomePage.name);
+        Navigator.pushReplacementNamed(context, BarcodeScannerWidget.name);
       });
     } on Exception catch (e) {
       mostrarError(context, ApiService.handleError(e));
