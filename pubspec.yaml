@@ -38,7 +38,7 @@ dependencies:
   flutter_barcode_scanner: ^2.0.0
   audioplayers: ^5.1.0
   audioplayers_linux: ^3.0.0
-
+  sqflite: null
 dev_dependencies:
 
   # The "flutter_lints" package below contains a set of recommended lints to
